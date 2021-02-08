@@ -4,9 +4,10 @@ Orientação a Objetos (OO) é uma disciplina que fiz no terceiro semestre em En
 
 ## Distribuição do conteúdo:
 
+- Exemlos: Códigos feitos de exemplos em aulas
 - TP01: Lista de Exercícios em Java
 - TP02: Documento de Requisitos
-- TP03: odelagem e implementação da camada de negócios
+- TP03: Modelagem e implementação da camada de negócios
 - TP04: Modelagem e implementação da camada de interação com usuário + arquitetura
 - TP05: Implementação de testes unitários usando JUnit e documentação do código usando JavaDoc
 - TP06: Trabalho Final
