@@ -5,7 +5,6 @@ public class ex3Q1 {
 	public static void main(String[] args) {
 		char operacao;
 		int num1, num2;
-		int resultado;
 		
 		Scanner ler = new Scanner(System.in);
 		System.out.print("Entre com a operação a ser realizada (+, - ou *): \n");
