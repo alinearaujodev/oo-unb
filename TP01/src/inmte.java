@@ -20,48 +20,37 @@ public class inmte {
 		System.out.print("-------------------------\n");
 		// MÊS COM 31 DIAS
 		if (x == 1 || x == 3 || x == 5 || x == 7 || x == 8 || x == 10 || x == 12) {
-			System.out.print("Dados do Mês: \n" + x);
+			System.out.print("Dados do Mês: " + x + "\n");
+			for (c = 0; c <=30; c++) {
+				System.out.print("Temperatura °C do dia " + (c+1) + ": ");
+				z[c] = ler.nextDouble();				
+			}
+			
+		} // MES COM 30 DIAS
+		  else if (x == 4 || x == 6 || x == 9 || x == 11) {
+			System.out.print("Dados do Mês: " + x + "\n");
 			for (c = 0; c <=29; c++) {
 				System.out.print("Temperatura °C do dia " + (c+1) + ": ");
 				z[c] = ler.nextDouble();				
 			}
-			for (c = 0; c <=30; c++) {
-				System.out.print("-------------------------\n");
-				System.out.print("Temperatura °C do dia " + (c+1) + ": " + z[c] + "\n");				
-			}
-		} 
-		
-}
-		
-		
-		
-		/*else if (month == 4 || month == 6 || month == 9 || month == 11) {
-			if(day >= 1 && day <= 30) {
-				// DIA VALIDO
-				System.out.println("Data Válida. A data digitada foi: " + day + "/" + month + "/" + year);
-			} else {
-				// DIA INVALIDO
-				System.out.println("Data Inválida");
-			}
 			
-		} else if (month == 2) {
-			if (year % 4 == 0) {
-				if (day >= 1 && day <= 29) {
-					// DIA VALIDO
-					System.out.println("Data Válida. A data digitada foi: " + day + "/" + month + "/" + year);
-				} else {
-					// DIA INVALIDO
-					System.out.println("Data Inválida");
-				}
-			} else if (day >= 1 && day <= 28) {
-				// DIA VALIDO
-				System.out.println("Data Válida. A data digitada foi: " + day + "/" + month + "/" + year);
-				} else {
-					// DIA INVALIDO
-					System.out.println("Data Inválida");
-				}
+		} // Mes de fevereiro com 29 dias 
+		  else if (x == 2 && (y == 2012 || y == 2016 || y == 2020)){
+			System.out.print("Dados do Mês: " + x + "\n");
+			for (c = 0; c <=28; c++) {
+				System.out.print("Temperatura °C do dia " + (c+1) + ": ");
+				z[c] = ler.nextDouble();				
+			}
+		} // mes de fevereiro com 28 dias
+		  else if (x == 2 && (y != 2012 || y != 2016 || y != 2020)){
+			System.out.print("Dados do Mês: " + x + "\n");
+			for (c = 0; c <=27; c++) {
+				System.out.print("Temperatura °C do dia " + (c+1) + ": ");
+				z[c] = ler.nextDouble();				
+			}
 		}
-	} */
+		
+	}
 
 	public static void main(String[] args) {
 		int opcao, mes = 1, ano = 2020, copMes = mes, copAno = ano;
@@ -138,7 +127,7 @@ public class inmte {
 					do {
 						// saber e validar ano
 						System.out.print("Ano: ");
-						ano = ler.nextInt();		
+						ano = ler.nextInt();	
 					} while (ano <=2010 || ano >= 2021);
 					saberDados(mes, ano, jan20);
 					break;	
