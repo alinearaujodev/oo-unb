@@ -15,6 +15,7 @@ public class inmte {
 	}
 	
 	static void saberDados(int x, int y, double z[]) {
+		// FUNCAO PARA SABER AS TEMPERATURAS DO MES
 		int c;
 		Scanner ler = new Scanner(System.in); //LEITURA DOS DADOS
 		System.out.print("-------------------------\n");
@@ -51,9 +52,23 @@ public class inmte {
 		}
 		
 	}
+	
+	static void calcularMedia (int x, int y, double z[]) {
+		// FUNCAO PARA CALCULAR A MEDIA
+		int c;
+		double media=0;
+		
+		System.out.print("-------------------------\n");
+		for (c=0; c< z.length; c++) {
+			media += z[c];
+		}
+		
+		System.out.print("Média de " + x + " / " + y + " = " + (media/z.length) + "\n");
+	}
+	
 
 	public static void main(String[] args) {
-		int opcao, mes = 1, ano = 2020, copMes = mes, copAno = ano;
+		int opcao, mes = 1, ano = 2020, copMes = mes, copAno = ano, escolheMes, escolheAno;
 		
 		Scanner ler = new Scanner(System.in); //LEITURA DOS DADOS
 		
@@ -134,22 +149,90 @@ public class inmte {
 				case 2:
 					System.out.print("-------------------------\n");
 					System.out.print("Cálculo da temperatura média\n");
-					
+					do {
+						// escolher mes cadastrado
+						System.out.print("Mês: ");
+						escolheMes = ler.nextInt();
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + " no nosso banco de dados. Tente Novamente.\n");
+						}
+						
+					} while (escolheMes != copMes);
+					do {
+						// escolher ano cadastrado
+						System.out.print("Ano: ");
+						escolheAno = ler.nextInt();	
+						if (escolheAno != copAno) {
+							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + " no nosso banco de dados. Tente Novamente.\n");
+						}
+					} while (escolheAno != copAno);
+					calcularMedia(copMes, copAno, fev20);
 					break;
 					
 				case 3:
 					System.out.print("-------------------------\n");
 					System.out.print("Cálculo da temperatura mínima\n");
+					do {
+						// escolher mes cadastrado
+						System.out.print("Mês: ");
+						escolheMes = ler.nextInt();
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + "no nosso banco de dados. Tente Novamente.\n");
+						}
+						
+					} while (escolheMes != copMes);
+					do {
+						// escolher ano cadastrado
+						System.out.print("Ano: ");
+						escolheAno = ler.nextInt();	
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + "no nosso banco de dados. Tente Novamente.\n");
+						}
+					} while (escolheAno != copAno);
 					break;
 					
 				case 4:
 					System.out.print("-------------------------\n");
 					System.out.print("Cálculo da temperatura máxima\n");
+					do {
+						// escolher mes cadastrado
+						System.out.print("Mês: ");
+						escolheMes = ler.nextInt();
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + "no nosso banco de dados. Tente Novamente.\n");
+						}
+						
+					} while (escolheMes != copMes);
+					do {
+						// escolher ano cadastrado
+						System.out.print("Ano: ");
+						escolheAno = ler.nextInt();	
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + "no nosso banco de dados. Tente Novamente.\n");
+						}
+					} while (escolheAno != copAno);
 					break;
 					
 				case 5:
 					System.out.print("-------------------------\n");
 					System.out.print("Relatório meteorológico\n");
+					do {
+						// escolher mes cadastrado
+						System.out.print("Mês: ");
+						escolheMes = ler.nextInt();
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + "no nosso banco de dados. Tente Novamente.\n");
+						}
+						
+					} while (escolheMes != copMes);
+					do {
+						// escolher ano cadastrado
+						System.out.print("Ano: ");
+						escolheAno = ler.nextInt();	
+						if (escolheMes != copMes) {
+							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + "no nosso banco de dados. Tente Novamente.\n");
+						}
+					} while (escolheAno != copAno);
 					break;
 					
 				case 6:
@@ -164,6 +247,9 @@ public class inmte {
 			// Fazer variavel de escopo global
 			copMes = mes;
 			copAno = ano;
+			for (int i=0; i < jan20.length; i++) {
+				fev20[i]=jan20[i]; 
+			}
 		} while (opcao != 6);
 
 	}
