@@ -87,11 +87,32 @@ public class inmte {
 		double media=0;
 		
 		System.out.print("-------------------------\n");
-		for (c=0; c< z.length; c++) {
-			media += z[c];
+		// MÊS COM 31 DIAS
+		if (x == 1 || x == 3 || x == 5 || x == 7 || x == 8 || x == 10 || x == 12) {
+			for (c = 0; c <=30; c++) {
+				media += z[c];
+			}	
+			System.out.print("Média de " + x + " / " + y + " = " + (media/31) + "\n");
+		} // MÊS COM 30 DIAS
+		else if (x == 4 || x == 6 || x == 9 || x == 11) {
+			for (c = 0; c <=29; c++) {
+				media += z[c];
+			}	
+			System.out.print("Média de " + x + " / " + y + " = " + (media/30) + "\n");
+		} // MES DE FEVEREIRO COM 29 DIAS
+		else if (x == 2 && (y == 2012 || y == 2016 || y == 2020)) {
+			for (c = 0; c <=28; c++) {
+				media += z[c];
+			}	
+			System.out.print("Média de " + x + " / " + y + " = " + (media/29) + "\n");
+		} // MES DE FEVEREIRO COM 28 DIAS
+		else if (x == 2 && (y != 2012 || y != 2016 || y != 2020)) {
+			for (c = 0; c <=27; c++) {
+				media += z[c];
+			}	
+			System.out.print("Média de " + x + " / " + y + " = " + (media/28) + "\n");
 		}
-		
-		System.out.print("Média de " + x + " / " + y + " = " + (media/z.length) + "\n");
+
 	}
 	
 	static void calcularMinima (int x, int y, double z[]) {
@@ -130,6 +151,14 @@ public class inmte {
 		System.out.print("Temperatura Maxima = " + max + "\n");
 		System.out.print(diaMax + "/" + x + "/" + y + "\n");
 		
+	}
+	
+	static void printDia(int x, int y, double z[]) {
+		int c;
+		System.out.print("-------------------------\n");
+		for (c=0; c< z.length; c++) {
+			System.out.print("Dia " + (c+1) + ": " + z[c] + "\n");
+		}
 	}
 
 	public static void main(String[] args) {
@@ -240,6 +269,10 @@ public class inmte {
 					System.out.print("Relatório meteorológico\n");
 					escolherMes(copMes);
 					escolherAno(copAno);
+					printDia(copMes, copAno, fev20);
+					calcularMedia(copMes, copAno, fev20);
+					calcularMinima(copMes, copAno, fev20);
+					calcularMaxima(copMes, copAno, fev20);
 					break;
 					
 				case 6:
