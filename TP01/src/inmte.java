@@ -92,51 +92,89 @@ public class inmte {
 			for (c = 0; c <=30; c++) {
 				media += z[c];
 			}	
-			System.out.print("Média de " + x + " / " + y + " = " + (media/31) + "\n");
+			System.out.print("Média de " + x + "/" + y + " = " + (media/31) + "\n");
 		} // MÊS COM 30 DIAS
 		else if (x == 4 || x == 6 || x == 9 || x == 11) {
 			for (c = 0; c <=29; c++) {
 				media += z[c];
 			}	
-			System.out.print("Média de " + x + " / " + y + " = " + (media/30) + "\n");
+			System.out.print("Média de " + x + "/" + y + " = " + (media/30) + "\n");
 		} // MES DE FEVEREIRO COM 29 DIAS
 		else if (x == 2 && (y == 2012 || y == 2016 || y == 2020)) {
 			for (c = 0; c <=28; c++) {
 				media += z[c];
 			}	
-			System.out.print("Média de " + x + " / " + y + " = " + (media/29) + "\n");
+			System.out.print("Média de " + x + "/" + y + " = " + (media/29) + "\n");
 		} // MES DE FEVEREIRO COM 28 DIAS
 		else if (x == 2 && (y != 2012 || y != 2016 || y != 2020)) {
 			for (c = 0; c <=27; c++) {
 				media += z[c];
 			}	
-			System.out.print("Média de " + x + " / " + y + " = " + (media/28) + "\n");
+			System.out.print("Média de " + x + "/" + y + " = " + (media/28) + "\n");
 		}
 
 	}
 	
 	static void calcularMinima (int x, int y, double z[]) {
 		// FUNCAO PARA CALCULAR A temperatura minima
-		int c=0 ,  diaMin = c + 1;
+		int c;
+		int[] diaMin = new int[31];
 		double minima = 10000, min = 0;
+		//boolean repetiu = false;
 				
 		System.out.print("-------------------------\n");
-		for (c=0; c< z.length; c++) {
-			if (z[c] < minima) {
-				min = z[c];
-				minima = min;
-				diaMin = (c + 1);
-			}
-		}
-				
-		System.out.print("Temperatura Mínima = " + min + "\n");
-		System.out.print(diaMin + "/" + x + "/" + y + "\n");
+		// MÊS COM 31 DIAS
+		if (x == 1 || x == 3 || x == 5 || x == 7 || x == 8 || x == 10 || x == 12) {
+			for (c = 0; c <=30; c++) {
+				if (z[c] < minima) {
+					min = z[c];
+					minima = min;
+					//diaMin = (c + 1);
+				}
+			}	
+		} // MÊS COM 30 DIAS
+		else if (x == 4 || x == 6 || x == 9 || x == 11) {
+			for (c = 0; c <=29; c++) {
+				if (z[c] < minima) {
+					min = z[c];
+					minima = min;
+					//diaMin = (c + 1);
+				}
+			}	
+		} // MÊS de FEVEREIRO COM 29 DIAS
+		else if (x == 2 && (y == 2012 || y == 2016 || y == 2020)) {
+			for (c = 0; c <=28; c++) {
+				if (z[c] < minima) {
+					min = z[c];
+					minima = min;
+					//diaMin = (c + 1);
+				}
+			}	
+		} // MÊS de FEVEREIRO COM 28 DIAS
+		else if (x == 2 && (y != 2012 || y != 2016 || y != 2020)) {
+			for (c = 0; c <=27; c++) {
+				if (z[c] < minima) {
+					min = z[c];
+					minima = min;
+					diaMin[c] = (c +1); 
+					//for(j = c+1; j < 27; j++){
+					//	if (z[j] == z[c]) {
+						//  repetiu = true;
+					//	}
+					//}
+				}
 
+			}	
+			System.out.print("Temperatura Mínima = " + min + "\n");
+			for (c = 0; c <=27; c++) {
+				System.out.print(diaMin[c] + "/" + x + "/" + y + "\n");
+			}
+		} 
 	}
 
 	static void calcularMaxima(int x, int y, double z[]) {
 		// FUNCAO PARA CALCULAR A temperatura maxima
-		int c=0 ,  diaMax = c + 1;
+		int c,  diaMax = 1;
 		double maxima = 0, max = 0;
 						
 		System.out.print("-------------------------\n");
