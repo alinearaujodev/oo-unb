@@ -14,6 +14,34 @@ public class inmte {
 		System.out.print("6 - Sair do sistema\n");
 	}
 	
+	static void escolherMes(int y) {
+		int x;
+		Scanner ler = new Scanner(System.in); //LEITURA DOS DADOS
+		do {
+			// escolher mes cadastrado
+			System.out.print("Mês: ");
+			x = ler.nextInt();
+			if (x != y) {
+				System.out.print("Erro! Não foi cadastrado mês " + x + " no nosso banco de dados. Tente Novamente.\n");
+			}
+			
+		} while (x != y);
+	}
+	
+	static void escolherAno(int y) {
+		int x;
+		Scanner ler = new Scanner(System.in); //LEITURA DOS DADOS
+		do {
+			// escolher ano cadastrado
+			System.out.print("Ano: ");
+			x = ler.nextInt();	
+			if (x != y) {
+				System.out.print("Erro! Não foi cadastrado ano " + x + " no nosso banco de dados. Tente Novamente.\n");
+			}
+		} while (x != y);
+		
+	}
+	
 	static void saberDados(int x, int y, double z[]) {
 		// FUNCAO PARA SABER AS TEMPERATURAS DO MES
 		int c;
@@ -66,6 +94,43 @@ public class inmte {
 		System.out.print("Média de " + x + " / " + y + " = " + (media/z.length) + "\n");
 	}
 	
+	static void calcularMinima (int x, int y, double z[]) {
+		// FUNCAO PARA CALCULAR A temperatura minima
+		int c=0 ,  diaMin = c + 1;
+		double minima = 10000, min = 0;
+				
+		System.out.print("-------------------------\n");
+		for (c=0; c< z.length; c++) {
+			if (z[c] < minima) {
+				min = z[c];
+				minima = min;
+				diaMin = (c + 1);
+			}
+		}
+				
+		System.out.print("Temperatura Mínima = " + min + "\n");
+		System.out.print(diaMin + "/" + x + "/" + y + "\n");
+
+	}
+
+	static void calcularMaxima(int x, int y, double z[]) {
+		// FUNCAO PARA CALCULAR A temperatura maxima
+		int c=0 ,  diaMax = c + 1;
+		double maxima = 0, max = 0;
+						
+		System.out.print("-------------------------\n");
+		for (c=0; c< z.length; c++) {
+			if (z[c] > maxima) {
+				max = z[c];
+				maxima = max;
+				diaMax = (c + 1);
+			}
+		}
+						
+		System.out.print("Temperatura Maxima = " + max + "\n");
+		System.out.print(diaMax + "/" + x + "/" + y + "\n");
+		
+	}
 
 	public static void main(String[] args) {
 		int opcao, mes = 1, ano = 2020, copMes = mes, copAno = ano, escolheMes, escolheAno;
@@ -149,98 +214,42 @@ public class inmte {
 				case 2:
 					System.out.print("-------------------------\n");
 					System.out.print("Cálculo da temperatura média\n");
-					do {
-						// escolher mes cadastrado
-						System.out.print("Mês: ");
-						escolheMes = ler.nextInt();
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + " no nosso banco de dados. Tente Novamente.\n");
-						}
-						
-					} while (escolheMes != copMes);
-					do {
-						// escolher ano cadastrado
-						System.out.print("Ano: ");
-						escolheAno = ler.nextInt();	
-						if (escolheAno != copAno) {
-							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + " no nosso banco de dados. Tente Novamente.\n");
-						}
-					} while (escolheAno != copAno);
+					escolherMes(copMes);
+					escolherAno(copAno);
 					calcularMedia(copMes, copAno, fev20);
 					break;
 					
 				case 3:
 					System.out.print("-------------------------\n");
 					System.out.print("Cálculo da temperatura mínima\n");
-					do {
-						// escolher mes cadastrado
-						System.out.print("Mês: ");
-						escolheMes = ler.nextInt();
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + "no nosso banco de dados. Tente Novamente.\n");
-						}
-						
-					} while (escolheMes != copMes);
-					do {
-						// escolher ano cadastrado
-						System.out.print("Ano: ");
-						escolheAno = ler.nextInt();	
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + "no nosso banco de dados. Tente Novamente.\n");
-						}
-					} while (escolheAno != copAno);
+					escolherMes(copMes);
+					escolherAno(copAno);
+					calcularMinima(copMes, copAno, fev20);
 					break;
 					
 				case 4:
 					System.out.print("-------------------------\n");
 					System.out.print("Cálculo da temperatura máxima\n");
-					do {
-						// escolher mes cadastrado
-						System.out.print("Mês: ");
-						escolheMes = ler.nextInt();
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + "no nosso banco de dados. Tente Novamente.\n");
-						}
-						
-					} while (escolheMes != copMes);
-					do {
-						// escolher ano cadastrado
-						System.out.print("Ano: ");
-						escolheAno = ler.nextInt();	
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + "no nosso banco de dados. Tente Novamente.\n");
-						}
-					} while (escolheAno != copAno);
+					escolherMes(copMes);
+					escolherAno(copAno);
+					calcularMaxima(copMes, copAno, fev20);
 					break;
 					
 				case 5:
 					System.out.print("-------------------------\n");
 					System.out.print("Relatório meteorológico\n");
-					do {
-						// escolher mes cadastrado
-						System.out.print("Mês: ");
-						escolheMes = ler.nextInt();
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado mês " + escolheMes + "no nosso banco de dados. Tente Novamente.\n");
-						}
-						
-					} while (escolheMes != copMes);
-					do {
-						// escolher ano cadastrado
-						System.out.print("Ano: ");
-						escolheAno = ler.nextInt();	
-						if (escolheMes != copMes) {
-							System.out.print("Erro! Não foi cadastrado ano " + escolheAno + "no nosso banco de dados. Tente Novamente.\n");
-						}
-					} while (escolheAno != copAno);
+					escolherMes(copMes);
+					escolherAno(copAno);
 					break;
 					
 				case 6:
+					// SAIR DO PROGRAMA
 					System.out.print("-------------------------\n");
 					System.out.print("Saíndo do Sistema... Obrigado!\n");
 					break;
 					
 				default:
+					// CASO OPCAO SEJA INVALIDA
 					System.out.print("-------------------------\n");
 					System.out.print("Comando Inválido, Tente novamente\n");
 			}
